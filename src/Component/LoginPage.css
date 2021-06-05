@@ -1,0 +1,29 @@
+html,body {
+    /* background-image: url(https://i.pinimg.com/originals/51/ae/43/51ae43ff077f6cdc11e09b5e41a23496.jpg); */
+    margin: 0;
+    padding: 0;
+    background-color: rgb(184, 189, 238);
+}
+
+.row-login {
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(206, 236, 238);
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    
+}
+.column-icon{
+    background-color: pink;
+    padding: 18px;
+    margin: 3px;
+    border: 1px solid black;
+}
+.column-login{
+    background-color: lightblue;
+    padding: 18px;
+    margin: 3px;
+    border: 1px solid black;
+}
