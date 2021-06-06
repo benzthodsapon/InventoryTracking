@@ -10,20 +10,25 @@ html,body {
     text-align: center;
     background-color: rgb(206, 236, 238);
     display: flex;
-    align-items: center;
-    flex-direction: row;
-
-    
+    width: 50%;
+    border: 3px solid red;
+    margin: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-top: 80px;
+        
 }
 .column-icon{
     background-color: pink;
-    padding: 18px;
+    padding: 200px;
     margin: 3px;
     border: 1px solid black;
 }
 .column-login{
     background-color: lightblue;
-    padding: 18px;
+    padding: 200px;
     margin: 3px;
     border: 1px solid black;
 }
