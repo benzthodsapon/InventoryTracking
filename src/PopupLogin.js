@@ -45,7 +45,7 @@ const PopupLogin = () => {
         <Button type="primary" htmlType="submit" className="login-form-button">
           Log in
         </Button> 
-        Or <a href={PopupRegister}>register now!</a>
+
       </Form.Item>
     </Form>
   );
