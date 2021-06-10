@@ -19,7 +19,7 @@ const BtnRegister = () => {
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
+      <Button type="primary" onClick={showModal}style={{width: "70%",height:"50px",marginTop:"50px" }}>
         Register
       </Button>
       <Modal title="Register" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>

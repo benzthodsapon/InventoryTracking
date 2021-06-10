@@ -1,52 +1,43 @@
-html,body {
-    /* background-image: url(https://i.pinimg.com/originals/51/ae/43/51ae43ff077f6cdc11e09b5e41a23496.jpg); */
-    margin: 0;
-    padding: 0;
-    background-color: rgb(184, 189, 238);
+.background-login{
+ height:100vh;
+ margin:0;
+ padding:0;
+ display: flex;
+ align-items: center;
+ justify-content:center;
 }
-
 .row-login {
     justify-content: center;
     text-align: center;
     background-color: rgb(206, 236, 238);
     display: flex;
-    width: 50%;
-    border: 5px solid red;
+    width: 60%;
+    border: 3px solid red;
     margin: auto;
     padding-top: 50px;
     padding-bottom: 50px;
     padding-left: 80px;
     padding-right: 80px;
-    margin-top: 80px;
-        
+
 }
 .column-icon{
-    /* background-color: pink;
-    padding: 200px;
+    background-color: pink;
     margin: 3px;
     border: 1px solid black;
     box-sizing: border-box;
-    max-width: 100%; */
-    background-color:red;
     width: 100%;
+    border: 2px solid red;
  
-   
-    
 }
 .column-login{
     background-color: lightblue;
     margin: 3px;
     border: 1px solid black;
     width: 100%;
+    border: 2px solid red;
 }
 .icon-login{
-    /* object-fit: cover; */
     width: 100%;
-    /* background-color: black;
-    border-radius: 50%;
-    width: 50px;
-     */
- 
     
 }
 

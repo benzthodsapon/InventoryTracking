@@ -17,14 +17,14 @@ const BtnLogin = () => {
   };
 
   return (
-    <>
-      <Button type="primary" onClick={showModal}>
+    <div className="btn-login">
+      <Button type="primary" onClick={showModal}style={{width: "70%",height:"50px",marginTop:"120px" }}>
         Login
       </Button>
       <Modal title="Login" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
         <PopupLogin />
       </Modal>
-    </>
+    </div>
   );
 };
     
