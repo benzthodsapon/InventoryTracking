@@ -80,8 +80,10 @@ const PopupRegister = () => {
           width: 70,
         }}
       >
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
+        <Option value="66">+66</Option>
+        <Option value="67">+67</Option>
+        <Option value="68">+69</Option>
+
       </Select>
     </Form.Item>
   );
@@ -184,24 +186,9 @@ const PopupRegister = () => {
       >
         <Input />
       </Form.Item>
-
-      <Form.Item
-        name="residence"
-        label="Habitual Residence"
-        rules={[
-          {
-            type: "array",
-            required: true,
-            message: "Please select your habitual residence!",
-          },
-        ]}
-      >
-        <Cascader options={residences} />
-      </Form.Item>
-
       <Form.Item
         name="phone"
-        label="Phone Number"
+        label="Phone Number"  
         rules={[
           {
             required: true,
@@ -216,26 +203,6 @@ const PopupRegister = () => {
           }}
         />
       </Form.Item>
-
-      <Form.Item
-        name="website"
-        label="Website"
-        rules={[
-          {
-            required: true,
-            message: "Please input website!",
-          },
-        ]}
-      >
-        <AutoComplete
-          options={websiteOptions}
-          onChange={onWebsiteChange}
-          placeholder="website"
-        >
-          <Input />
-        </AutoComplete>
-      </Form.Item>
-
       <Form.Item
         name="gender"
         label="Gender"
@@ -252,32 +219,6 @@ const PopupRegister = () => {
           <Option value="other">Other</Option>
         </Select>
       </Form.Item>
-
-      <Form.Item
-        label="Captcha"
-        extra="We must make sure that your are a human."
-      >
-        <Row gutter={8}>
-          <Col span={12}>
-            <Form.Item
-              name="captcha"
-              noStyle
-              rules={[
-                {
-                  required: true,
-                  message: "Please input the captcha you got!",
-                },
-              ]}
-            >
-              <Input />
-            </Form.Item>
-          </Col>
-          <Col span={12}>
-            <Button>Get captcha</Button>
-          </Col>
-        </Row>
-      </Form.Item>
-
       <Form.Item
         name="agreement"
         valuePropName="checked"
