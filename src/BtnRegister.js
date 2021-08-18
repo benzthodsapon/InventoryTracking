@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Modal, Button } from 'antd';
-import PopupRegister from './PopupRegister';
+import React, { useState } from "react";
+import { Modal, Button } from "antd";
+import PopupRegister from "./PopupRegister";
 
 const BtnRegister = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -19,10 +19,19 @@ const BtnRegister = () => {
 
   return (
     <>
-      <Button type="primary" onClick={showModal}style={{width: "70%",height:"50px",marginTop:"50px" }}>
+      <Button
+        type="primary"
+        onClick={showModal}
+        style={{ width: "70%", height: "50px", marginTop: "50px" }}
+      >
         Register
       </Button>
-      <Modal title="Register" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+      <Modal
+        title="Register"
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
         <PopupRegister />
       </Modal>
     </>

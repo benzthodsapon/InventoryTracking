@@ -1,40 +1,16 @@
 import React, { useState } from "react";
-import { Form,Input,Cascader,Select,Row,Col,Checkbox,Button,AutoComplete,} from "antd";
+import {
+  Form,
+  Input,
+  Cascader,
+  Select,
+  Row,
+  Col,
+  Checkbox,
+  Button,
+  AutoComplete,
+} from "antd";
 const { Option } = Select;
-    const residences = [
-  {
-    value: "zhejiang",
-    label: "Zhejiang",
-    children: [
-      {
-        value: "hangzhou",
-        label: "Hangzhou",
-        children: [
-          {
-            value: "xihu",
-            label: "West Lake",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    value: "jiangsu",
-    label: "Jiangsu",
-    children: [
-      {
-        value: "nanjing",
-        label: "Nanjing",
-        children: [
-          {
-            value: "zhonghuamen",
-            label: "Zhong Hua Men",
-          },
-        ],
-      },
-    ],
-  },
-];
 const formItemLayout = {
   labelCol: {
     xs: {
@@ -83,7 +59,6 @@ const PopupRegister = () => {
         <Option value="66">+66</Option>
         <Option value="67">+67</Option>
         <Option value="68">+69</Option>
-
       </Select>
     </Form.Item>
   );
@@ -98,22 +73,13 @@ const PopupRegister = () => {
       );
     }
   };
-
-  const websiteOptions = autoCompleteResult.map((website) => ({
-    label: website,
-    value: website,
-  }));
   return (
     <Form
       {...formItemLayout}
       form={form}
       name="register"
       onFinish={onFinish}
-      initialValues={{
-        residence: ["zhejiang", "hangzhou", "xihu"],
-        prefix: "86",
-      }}
-      scrollToFirstError
+    
     >
       <Form.Item
         name="email"
@@ -188,7 +154,7 @@ const PopupRegister = () => {
       </Form.Item>
       <Form.Item
         name="phone"
-        label="Phone Number"  
+        label="Phone Number"
         rules={[
           {
             required: true,

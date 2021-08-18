@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Modal, Button } from 'antd';
+import React, { useState } from "react";
+import { Modal, Button } from "antd";
 import PopupLogin from "./PopupLogin";
 const BtnLogin = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -18,15 +18,23 @@ const BtnLogin = () => {
 
   return (
     <div className="btn-login">
-      <Button type="primary" onClick={showModal}style={{width: "70%",height:"50px",marginTop:"120px" }}>
+      <Button
+        type="primary"
+        onClick={showModal}
+        style={{ width: "70%", height: "50px", marginTop: "120px" }}
+      >
         Login
       </Button>
-      <Modal title="Login" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+      <Modal
+        title="Login"
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
         <PopupLogin />
       </Modal>
     </div>
   );
 };
-    
-export default BtnLogin;
 
+export default BtnLogin;

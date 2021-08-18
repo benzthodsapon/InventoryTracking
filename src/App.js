@@ -3,7 +3,6 @@ import "./Component/LoginPage.css";
 import BtnLogin from "./BtnLogin";
 import BtnRegister from "./BtnRegister";
 
-
 function App() {
   return (
     <div className="background-login">
