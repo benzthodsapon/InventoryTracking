@@ -1,20 +1,16 @@
 import "./App.css";
-import "./Component/LoginPage.css";
-import BtnLogin from "./BtnLogin";
-import BtnRegister from "./BtnRegister";
+import PageHome from "./PageHome";
+import { BrowserRouter, Route, Link, Router, Redirect } from "react-router-dom";
+import LoginPage from "./LoginPage";
 
 function App() {
+ 
   return (
-    <div className="background-login">
-      <div className="row-login">
-        <div className="column-icon">
-          <img className="icon-login" src="/img/icon1.png"></img>
-        </div>
-        <div className="column-login">
-          <BtnLogin />
-          <BtnRegister />
-        </div>
-      </div>
+    <div>
+      <BrowserRouter>
+        <Route exact path="/" component={LoginPage} />
+        <Route path="/PageHome" component={PageHome} />
+      </BrowserRouter>
     </div>
   );
 }

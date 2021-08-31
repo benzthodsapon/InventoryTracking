@@ -1,10 +1,15 @@
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import PopupRegister from './PopupRegister';
+import { useHistory } from "react-router-dom";
 
 
 const PopupLogin = () => {
-  const onFinish = (values: any) => {
+  const history = useHistory()
+  const linkto = () => {
+    history.push('/PageHome')
+  }
+  const onFinish = (values) => {
     console.log('Received values of form: ', values);
   };
 
@@ -42,7 +47,7 @@ const PopupLogin = () => {
       </Form.Item>
 
       <Form.Item>
-        <Button type="primary" htmlType="submit" className="login-form-button">
+        <Button onClick = {linkto}  type="primary" htmlType="submit" className="login-form-button">
           Log in
         </Button> 
 
