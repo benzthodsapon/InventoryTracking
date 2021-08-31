@@ -5,6 +5,8 @@
  display: flex;
  align-items: center;
  justify-content:center;
+ flex-direction: column;
+ background-color: rgb(238, 241, 185);
 }
 .row-login {
     justify-content: center;
@@ -38,6 +40,11 @@
 }
 .icon-login{
     width: 100%;
+    
+}
+.ant-typography{
+
+    margin-top:  70px;
     
 }
 

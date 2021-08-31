@@ -1,16 +1,15 @@
-import { Form, Input, Button, Checkbox } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import PopupRegister from './PopupRegister';
+import { Form, Input, Button, Checkbox } from "antd";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import PopupRegister from "./PopupRegister";
 import { useHistory } from "react-router-dom";
 
-
 const PopupLogin = () => {
-  const history = useHistory()
+  const history = useHistory();
   const linkto = () => {
-    history.push('/PageHome')
-  }
+    history.push("/PageHome");
+  };
   const onFinish = (values) => {
-    console.log('Received values of form: ', values);
+    console.log("Received values of form: ", values);
   };
 
   return (
@@ -22,13 +21,16 @@ const PopupLogin = () => {
     >
       <Form.Item
         name="username"
-        rules={[{ required: true, message: 'Please input your Username!' }]}
+        rules={[{ required: true, message: "Please input your Username!" }]}
       >
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+        <Input
+          prefix={<UserOutlined className="site-form-item-icon" />}
+          placeholder="Username"
+        />
       </Form.Item>
       <Form.Item
         name="password"
-        rules={[{ required: true, message: 'Please input your Password!' }]}
+        rules={[{ required: true, message: "Please input your Password!" }]}
       >
         <Input
           prefix={<LockOutlined className="site-form-item-icon" />}
@@ -47,10 +49,14 @@ const PopupLogin = () => {
       </Form.Item>
 
       <Form.Item>
-        <Button onClick = {linkto}  type="primary" htmlType="submit" className="login-form-button">
+        <Button
+          onClick={linkto}
+          type="primary"
+          htmlType="submit"
+          className="login-form-button"
+        >
           Log in
-        </Button> 
-
+        </Button>
       </Form.Item>
     </Form>
   );
