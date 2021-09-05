@@ -5,7 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.css';
 import { BrowserRouter } from 'react-router-dom';
+import 'firebase/firestore'
+import fire from './Fire'
+import 'firebase/firestore'
+import * as firebase from "firebase/app";
 
+
+// if(firebase.apps.length === 0)
+// firebase.initializeApp(fire)
+// export const firestore = firebase.firestore()
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

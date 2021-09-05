@@ -139,9 +139,8 @@ const PopupRegister = () => {
       </Form.Item>
 
       <Form.Item
-        name="nickname"
-        label="Nickname"
-        tooltip="What do you want others to call you?"
+        name="Type"
+        label="Type"
         rules={[
           {
             required: true,
