@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import firebaseConfig from "./Config";
 import {
   Form,
   Input,
@@ -74,13 +75,7 @@ const PopupRegister = () => {
     }
   };
   return (
-    <Form
-      {...formItemLayout}
-      form={form}
-      name="register"
-      onFinish={onFinish}
-    
-    >
+    <Form {...formItemLayout} form={form} name="register" onFinish={onFinish}>
       <Form.Item
         name="email"
         label="E-mail"

@@ -2,6 +2,10 @@ import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import PopupRegister from "./PopupRegister";
 import { useHistory } from "react-router-dom";
+import auth from './Config'
+// // import Firebase from "firebase";
+// import { useState } from 'react';
+// import firebaseConfig from "./Config"
 
 const PopupLogin = () => {
   const history = useHistory();
@@ -12,6 +16,7 @@ const PopupLogin = () => {
     console.log("Received values of form: ", values);
   };
 
+
   return (
     <Form
       name="normal_login"
@@ -20,12 +25,12 @@ const PopupLogin = () => {
       onFinish={onFinish}
     >
       <Form.Item
-        name="username"
-        rules={[{ required: true, message: "Please input your Username!" }]}
+        name="E-mail"
+        rules={[{ required: true, message: "Please input your E-mail" }]}
       >
         <Input
           prefix={<UserOutlined className="site-form-item-icon" />}
-          placeholder="Username"
+          placeholder="E-Mail"
         />
       </Form.Item>
       <Form.Item

@@ -17,7 +17,7 @@ return(
   </Header>
   <Content style={{ padding: '0 50px' }}>
     <h1>Hello World</h1>
-    <div className="site-layout-content">Content</div>
+    <div className="site-layout-content"></div>
   </Content>
 </Layout>
 )

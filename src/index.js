@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.css';
 import { BrowserRouter } from 'react-router-dom';
 import 'firebase/firestore'
-import fire from './Fire'
 import 'firebase/firestore'
 import * as firebase from "firebase/app";
 
