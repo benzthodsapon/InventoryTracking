@@ -26,10 +26,10 @@ const BtnLogin = () => {
         Login
       </Button>
       <Modal
+      onCancel = {handleCancel}
         title="Login"
         visible={isModalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
+        footer={null}
       >
         <PopupLogin />
       </Modal>

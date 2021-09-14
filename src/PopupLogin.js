@@ -1,61 +1,49 @@
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button,message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import PopupRegister from "./PopupRegister";
 import { useHistory } from "react-router-dom";
-import auth from './Config'
-// // import Firebase from "firebase";
-// import { useState } from 'react';
-// import firebaseConfig from "./Config"
+import { auth } from "./Config";
+import React, { useState } from "react";
+
 
 const PopupLogin = () => {
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
   const linkto = () => {
     history.push("/PageHome");
   };
-  const onFinish = (values) => {
-    console.log("Received values of form: ", values);
+  const handleSubmit = (value) => {
+    console.log(value);
+    setLoading(true);
+    auth
+      .signInWithEmailAndPassword(value.email, value.password)
+      .then((data) => {
+        console.log(data);
+        history.push("/PageHome");
+      })
+      .catch((err) => {
+        console.log(err);
+        message.error("Username/Password is not valid")
+      });
+    setLoading(false);
   };
 
-
   return (
-    <Form
-      name="normal_login"
-      className="login-form"
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-    >
+    <Form name="normal_login" className="login-form" onFinish={handleSubmit}>
       <Form.Item
-        name="E-mail"
-        rules={[{ required: true, message: "Please input your E-mail" }]}
+        name="email"
+        rules={[{ required: true, message: "Please input your email!" }]}
       >
-        <Input
-          prefix={<UserOutlined className="site-form-item-icon" />}
-          placeholder="E-Mail"
-        />
+        <Input placeholder="Email" disabled={loading} />
       </Form.Item>
       <Form.Item
         name="password"
-        rules={[{ required: true, message: "Please input your Password!" }]}
+        rules={[{ required: true, message: "Please input your password!" }]}
       >
-        <Input
-          prefix={<LockOutlined className="site-form-item-icon" />}
-          type="password"
-          placeholder="Password"
-        />
+        <Input.Password placeholder="Password" disabled={loading} />
       </Form.Item>
-      <Form.Item>
-        <Form.Item name="remember" valuePropName="checked" noStyle>
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
-
-        <a className="login-form-forgot" href="">
-          Forgot password
-        </a>
-      </Form.Item>
-
       <Form.Item>
         <Button
-          onClick={linkto}
           type="primary"
           htmlType="submit"
           className="login-form-button"
