@@ -1,8 +1,7 @@
 import { Form, Input, Button,message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import PopupRegister from "./PopupRegister";
 import { useHistory } from "react-router-dom";
-import { auth } from "./Config";
+import { auth } from "../FirebaseConfig/Config";
 import React, { useState } from "react";
 
 

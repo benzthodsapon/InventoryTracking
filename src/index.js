@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 import 'firebase/firestore'
 import 'firebase/firestore'
 import * as firebase from "firebase/app";
-import firebaseConfig from './Config';
+import firebaseConfig from './FirebaseConfig/Config';
 
 
 ReactDOM.render(

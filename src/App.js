@@ -1,7 +1,7 @@
 import "./App.css";
-import PageHome from "./PageHome";
+import PageHome from "./Page/PageHome";
 import { BrowserRouter, Route, Link, Router, Redirect } from "react-router-dom";
-import LoginPage from "./LoginPage";
+import LoginPage from "./Page/LoginPage";
 
 function App() {
  

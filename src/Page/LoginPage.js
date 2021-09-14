@@ -1,7 +1,6 @@
-import "./App.css";
-import "./Component/LoginPage.css";
-import BtnLogin from "./BtnLogin";
-import BtnRegister from "./BtnRegister";
+import "../App.css"
+import "../Component/LoginPage.css";
+import BtnLogin from "../Component/BtnLogin";
 import { Typography } from "antd";
 
 const { Title } = Typography;
@@ -18,7 +17,6 @@ const LoginPage = () => {
           </div>
           <div className="column-login">
             <BtnLogin />
-            <BtnRegister />
           </div>
         </div>
       </div>

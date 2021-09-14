@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button } from "antd";
-import PopupRegister from "./PopupRegister";
-
-const BtnRegister = () => {
+import PopupLogin from "./PopupLogin";
+const BtnLogin = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -18,23 +17,24 @@ const BtnRegister = () => {
   };
 
   return (
-    <>
+    <div className="btn-login">
       <Button
         type="primary"
         onClick={showModal}
-        style={{ width: "70%", height: "50px", marginTop: "50px" }}
+        style={{ width: "70%", height: "50px", marginTop: "158px" }}
       >
-        Register
+        Login
       </Button>
       <Modal
-        title="Register"
+      onCancel = {handleCancel}
+        title="Login"
         visible={isModalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
+        footer={null}
       >
-        <PopupRegister />
+        <PopupLogin />
       </Modal>
-    </>
+    </div>
   );
 };
-export default BtnRegister;
+
+export default BtnLogin;
