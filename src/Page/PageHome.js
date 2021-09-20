@@ -18,14 +18,15 @@ import Bed from "../Component/Bed";
 import Wheelcahir from "../Component/Wheelchair";
 import OxygenTank from "../Component/OxygenTank";
 import Account from "../Component/Account";
-import SeletedItem from "../Component/SelectedItem"
+import BorrowedItems from "../Component/BorrowedItems"
+import { useHistory,useLocation } from "react-router-dom";
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 const PageHome = () => {
+  const history = useHistory();
   const [collapsed, setCollapsed] = useState(false);
-
   const onCollapse = (collapsed) => {
     console.log(collapsed);
     setCollapsed(collapsed);
@@ -42,24 +43,24 @@ const PageHome = () => {
     } else if (key == "OxygenTank") {
       setMenuselact("OxygenTank");
     }
-    else if (key == "SeletedItem") {
-      setMenuselact("SeletedItem");
+    else if (key == "BorrowedItems") {
+      setMenuselact("BorrowedItems");
     }
   };
-
+  console.log(history.location.pathname);
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
         <div className="logo" />
         <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-
+      
         
           
           <Menu.Item key="1"icon={<TeamOutlined />} onClick={() => onSelect("Account")}>
             My Account
           </Menu.Item>
 
-          <Menu.Item key="2"icon={<AuditOutlined  />} onClick={() => onSelect("")}>
+          <Menu.Item key="2"icon={<AuditOutlined  />} onClick={() => onSelect("BorrowedItems")}>
             รายการยืม
           </Menu.Item>
           
@@ -75,7 +76,7 @@ const PageHome = () => {
             </Menu.Item>
           </SubMenu>
          
-          <Menu.Item key="6"  icon={<ShoppingCartOutlined/>} onClick ={() => onSelect("SeletedItem")} >
+          <Menu.Item key="6"  icon={<ShoppingCartOutlined/>} >
             รายการที่เลือก 
           </Menu.Item>
           
@@ -101,7 +102,7 @@ const PageHome = () => {
             {menuselect == "Bed" && <Bed />}
             {menuselect == "Wheelchair" && <Wheelcahir />}
             {menuselect == "OxygenTank" && <OxygenTank />}
-            {menuselect == "SeletedItem" && <SeletedItem />}
+            {menuselect == "BorrowedItems" && <BorrowedItems/>}
           </div>
         </Content>
       </Layout>
