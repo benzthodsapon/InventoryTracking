@@ -37,28 +37,26 @@ const AddFrom = () => {
   return (
     <>
       <Button type="primary" onClick={showModal}>
-        Create From
+      รายงานอุปกรณ์ชำรุด
       </Button>
-      <Modal title="Add Product" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+      <Modal title="รายงานอุปกรณ์ชำรุด" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
       <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
-      <Form.Item name={['user', 'type']} label="Type" rules={[{ required: true }]}>
+      <Form.Item name={['user', 'name']} label="ชื่อ" rules={[{ required: true }]}>
         <Input />
       </Form.Item>
-      <Form.Item name={['user', 'status']} label="Status" rules={[{ type: 'status' }]}>
+      <Form.Item name={['user', 'status']} label="วันที่" rules={[{ type: 'status' }]}>
         <Input />
       </Form.Item>
-      <Form.Item name={['user', 'amount']} label="Amount" rules={[{ type: 'number', min: 0, max: 99 }]}>
+      <Form.Item name={['user', 'amount']} label="จำนวน" rules={[{ type: 'number', min: 0, max: 99 }]}>
         <InputNumber />
       </Form.Item>
-      {/* <Form.Item name={['user', 'website']} label="Website">
-        <Input />
-      </Form.Item>
-      <Form.Item name={['user', 'introduction']} label="Introduction">
+      
+      <Form.Item name={['user', 'introduction']} label="สาเหตุ">
         <Input.TextArea />
-      </Form.Item> */}
+      </Form.Item>
       <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
         <Button type="primary" htmlType="submit">
-          Submit
+          ส่ง
         </Button>
       </Form.Item>
     </Form>

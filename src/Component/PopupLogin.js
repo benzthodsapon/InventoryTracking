@@ -22,7 +22,7 @@ const PopupLogin = () => {
       })
       .catch((err) => {
         console.log(err);
-        message.error("Username/Password is not valid")
+        message.error("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง")
       });
     setLoading(false);
   };

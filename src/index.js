@@ -6,10 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.css';
 import { BrowserRouter } from 'react-router-dom';
 import 'firebase/firestore'
-import 'firebase/firestore'
-import * as firebase from "firebase/app";
+import firebase from 'firebase/app';
 import firebaseConfig from './FirebaseConfig/Config';
 
+if(firebase.apps.length === 0)
+
+  firebase.initializeApp(firebaseConfig)
+export const firestore = firebase.firestore()
 
 ReactDOM.render(
   <React.StrictMode>
