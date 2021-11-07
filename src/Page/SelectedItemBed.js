@@ -14,7 +14,7 @@ const SeletedItemBed = () => {
  
   const retriveData = () => {
 
-    firestore.collection("Inventory").onSnapshot(snapshot => {
+    firestore.collection("Bed").onSnapshot(snapshot => {
 
       console.log(snapshot);
 

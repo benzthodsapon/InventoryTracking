@@ -20,6 +20,7 @@ import OxygenTank from "../Component/OxygenTank";
 import Account from "../Component/Account";
 import BorrowedItems from "../Component/BorrowedItems"
 import { useHistory,useLocation } from "react-router-dom";
+import Timer from "../Component/Timer";
 
 const { Header, Content,  Sider } = Layout;
 const { SubMenu } = Menu;
@@ -45,6 +46,9 @@ const PageHome = () => {
     }
     else if (key == "BorrowedItems") {
       setMenuselact("BorrowedItems");
+    }
+    else if (key == "AddFrom") {
+      setMenuselact("AddFrom");
     }
   };
   console.log(history.location.pathname);
@@ -80,20 +84,14 @@ const PageHome = () => {
             รายการที่เลือก 
           </Menu.Item>
           
-          {/* <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
-            <Menu.Item key="6">Team 1</Menu.Item>
-            <Menu.Item key="7">Team 2</Menu.Item>
-          </SubMenu> */}
-          
-          <Menu.Item key="7" icon={<PlusCircleOutlined />}>
-            <AddFrom />
-         
+          <Menu.Item key="7" onClick={() => onSelect("AddFrom")}>
+            เพิ่มรายการ
           </Menu.Item>
         </Menu>
       </Sider>
       <Layout className="site-layout">
       <div>
-          <p> asdasdasd</p>
+          <Timer />
         </div>
         
         <Content style={{ margin: "0 15px" }}>
@@ -106,6 +104,7 @@ const PageHome = () => {
             {menuselect == "Wheelchair" && <Wheelcahir />}
             {menuselect == "OxygenTank" && <OxygenTank />}
             {menuselect == "BorrowedItems" && <BorrowedItems/>}
+            {menuselect == "AddFrom" && <AddFrom/>}
           </div>
         </Content>
       </Layout>

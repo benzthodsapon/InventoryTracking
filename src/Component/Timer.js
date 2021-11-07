@@ -1,26 +1,23 @@
-// import { classImplements } from '@babel/types'
-// import React from 'react'
+import { classImplements } from '@babel/types'
+import React,{useState} from 'react'
+import "./Timer.css"
 
-// const Timer = () => {
-//     state = {
-//         date : new Date()
-        
-//     };
+const Timer = () => {
+    const [date,setDate] =useState([]);
 
-//      const callMe(){
-//         sentinterval(() =>{
-//         this.setState({date: new Date()})
-//         }, 1000);
-//     }
-//     render(){
-//         return(
-//         <div className ="time">
-//             <h1>Current Time</h1>
-//             <h2>It is {this.props.date.toLocalTimeString()}</h2>
-//             {this.callMe()}
-//         </div>
-//             )
-//     }
+     const callMe = () =>{
+        setInterval(() =>{
+        setDate(new Date()) 
+        }, 1000);
+    }
+        return(
+        <div className ="time">
+            <h1>Current Time It is {date.toLocaleString()}</h1>
+            
+            {callMe()}
+        </div>
+            )
+    
    
-// }
-// export default Timer;
+}
+export default Timer;

@@ -5,8 +5,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "antd/dist/antd.css";
 import { BrowserRouter } from "react-router-dom";
-import "firebase/firestore";
-import firebase from "firebase/app";
+import "firebase/compat/firestore";
+import firebase from 'firebase/compat/app';
 import firebaseConfig from "./FirebaseConfig/Config";
 
 if (firebase.apps.length === 0)

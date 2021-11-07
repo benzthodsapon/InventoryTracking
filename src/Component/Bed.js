@@ -13,9 +13,9 @@ const { Meta } = Card;
   const [ Bed ,setBed] =useState([{}]);
   const retriveData = () => {
 
-    firestore.collection("Inventory").onSnapshot(snapshot => {
+    firestore.collection("Bed").onSnapshot(snapshot => {
 
-      console.log(snapshot);
+    
 
       let MyBed = snapshot.docs.map(d => {
 
