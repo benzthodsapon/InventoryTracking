@@ -21,7 +21,7 @@ import Account from "../Component/Account";
 import BorrowedItems from "../Component/BorrowedItems"
 import { useHistory,useLocation } from "react-router-dom";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content,  Sider } = Layout;
 const { SubMenu } = Menu;
 
 const PageHome = () => {
@@ -92,7 +92,10 @@ const PageHome = () => {
         </Menu>
       </Sider>
       <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }} />
+      <div>
+          <p> asdasdasd</p>
+        </div>
+        
         <Content style={{ margin: "0 15px" }}>
           <div
             className="site-layout-background"

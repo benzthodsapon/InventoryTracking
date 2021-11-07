@@ -1,28 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import 'antd/dist/antd.css';
-import { BrowserRouter } from 'react-router-dom';
-import 'firebase/firestore'
-import firebase from 'firebase/app';
-import firebaseConfig from './FirebaseConfig/Config';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "antd/dist/antd.css";
+import { BrowserRouter } from "react-router-dom";
+import "firebase/firestore";
+import firebase from "firebase/app";
+import firebaseConfig from "./FirebaseConfig/Config";
 
-if(firebase.apps.length === 0)
-
-  firebase.initializeApp(firebaseConfig)
-export const firestore = firebase.firestore()
+if (firebase.apps.length === 0)
+ firebase.initializeApp(firebaseConfig);
+export const firestore = firebase.firestore();
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <App />
+      <App />
     </BrowserRouter>
-    
-
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 reportWebVitals();

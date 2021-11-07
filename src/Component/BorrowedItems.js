@@ -1,7 +1,7 @@
 const BorrowedItems = () => {
     
     return (
-        <h1>Hello</h1>
+        <h1>ID: XXX</h1>
     )
   
   }
