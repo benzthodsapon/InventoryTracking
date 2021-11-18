@@ -38,6 +38,9 @@ const AddBed = () => {
       range: "${label} must be between ${min} and ${max}",
     },
   };
+
+
+  
   useEffect(() => {
 
 

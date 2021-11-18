@@ -91,7 +91,7 @@ const PageHome = () => {
       </Sider>
       <Layout className="site-layout">
       <div>
-          <Timer />
+          {/* <Timer /> */}
         </div>
         
         <Content style={{ margin: "0 15px" }}>
