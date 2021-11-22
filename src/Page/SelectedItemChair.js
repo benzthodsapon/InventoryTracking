@@ -9,7 +9,13 @@ const { Meta } = Card;
 const SeletedItemChair = () => {
     const history = useHistory();
     console.log(history.location.pathname.substr(history.location.pathname.length - 1));
-    
+    const [InventoryTracking, setInventoryTracking] = useState([{}]);
+  const [id, setId] = useState(0);
+  const [type, setType] = useState([]);
+  const [status, setStatus] = useState([]);
+  const [img, setImg] = useState([]);
+  const [location, setLocation] = useState([]);
+  const [MyBorrow,setBorrow] = useState([{}]);
     const [ Wheelcahir ,setWheelchair] =useState([{}]);
   const retriveData = () => {
 
@@ -30,14 +36,34 @@ const SeletedItemChair = () => {
       })
     
     }
+    const onADD = (ids, img, location, status, type) => {
+      let id = MyBorrow.length === 0 ? 1 : MyBorrow[MyBorrow.length - 1].id + 1;
+      firestore
+      .collection("borrow")
+      .doc(id + "")
+      .set({ ids, img, location, status, type });
+    alert("ทำการยืมเสร็จเรียบร้อย");
+      }
+    const retriveDataBorrow = () => {
+      firestore.collection("borrow").onSnapshot((snapshot) => {
+        console.log(snapshot);
   
-  useEffect(() => {
+        let MyBorrow= snapshot.docs.map((d) => {
+          const { id, img, location, status, type } = d.data();
+          console.log(id, img, location, status, type);
+          return { id, img, location, status, type };
+        });
+  
+        setBorrow(MyBorrow);
+      });
+    };
+  
 
 
-    retriveData()
-
-
-  },)
+    useEffect(() =>{
+      retriveData();
+      retriveDataBorrow();
+    });
  
     return (
         
@@ -63,11 +89,12 @@ const SeletedItemChair = () => {
                 src= {item.img}
               />
             }
-            actions={[
-              <h1 ><CheckCircleOutlined />ยืนยันการยืม</h1>
-              
+            actions={[ 
+              <h1 onClick={() => onADD(item.id, item.img, item.location, item.status, item.type)}>
+                <CheckCircleOutlined />
+                ยืนยันการยืม
+              </h1>,
             ]}
-            
           >
            <Meta
               title ={`รหัสอุปกรณ์ ${item.id}`}

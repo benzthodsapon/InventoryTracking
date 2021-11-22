@@ -28,7 +28,7 @@ const BorrowedItems = () => {
   useEffect(() => {
 
 
-    retriveData()
+    retriveData();
 
   })
     

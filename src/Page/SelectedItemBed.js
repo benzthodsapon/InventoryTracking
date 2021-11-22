@@ -9,6 +9,7 @@ const { Meta } = Card;
 
 const SeletedItemBed = () => {
   const history = useHistory();
+  
   console.log(
     history.location.pathname.substr(history.location.pathname.length - 1)
   );
@@ -25,25 +26,21 @@ const SeletedItemBed = () => {
     let id =
       InventoryTracking.length === 0
         ? 1
-        : InventoryTracking[InventoryTracking.length - 1].id + 1;
+        : InventoryTracking[InventoryTracking.length - 1 ].id + 1;
     firestore
-      .collection("bed")
+      .collection("Bed")
       .doc(id + "")
       .set({ id, img, location, status, type });
     alert("You Add Finish");
   };
-  const onADD= (item) => {
-    console.log(item);
-    let id =
-      InventoryTracking.length === 0
-        ? 1
-        : InventoryTracking[InventoryTracking.length - 1].id + 1;
-    firestore
-      .collection("borrow")
-      .doc(id + "")
-      .set({ id, img, location, status, type });
-    alert("ทำการยืมเรียบร้อย");
-  };
+  const onADD = (ids, img, location, status, type) => {
+  let id = MyBorrow.length === 0 ? 1 : MyBorrow[MyBorrow.length - 1].id + 1;
+  firestore
+  .collection("borrow")
+  .doc(id + "")
+  .set({ ids, img, location, status, type });
+alert("ทำการยืมเสร็จเรียบร้อย");
+  }
 
   const retriveData = () => {
     firestore.collection("Bed").onSnapshot((snapshot) => {
@@ -77,9 +74,10 @@ const SeletedItemBed = () => {
 
 console.log(MyBorrow)
 
-  useEffect(() => {
-    retriveData();
-  });
+useEffect(() =>{
+  retriveData();
+  retriveDataBorrow();
+});
 
   return (
     <div className="Bedid">
@@ -102,7 +100,7 @@ console.log(MyBorrow)
                     />
                   }
                   actions={[ 
-                    <h1 onClick={onADD}>
+                    <h1 onClick={() => onADD(item.id, item.img, item.location, item.status, item.type)}>
                       <CheckCircleOutlined />
                       ยืนยันการยืม
                     </h1>,
