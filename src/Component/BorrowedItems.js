@@ -1,4 +1,4 @@
-import { Card,  } from 'antd';
+import { Button, Card,  } from 'antd';
 import { DownSquareOutlined } from '@ant-design/icons';
 import React, { useState,useEffect,} from "react";
 import { firestore } from '../index'
@@ -7,6 +7,15 @@ const { Meta } = Card;
 const BorrowedItems = () => {
     
   const [ BorrowedItems ,setBorrow] =useState([{}]);
+
+  const deleteData = (id) => {
+    console.log(id);
+    firestore.collection("borrow").doc(id.toString()).delete();
+  };
+
+  const handleClick =()=>{
+    console.log("CLICK");
+  }
   const retriveData = () => {
 
     firestore.collection("borrow").onSnapshot(snapshot => {
@@ -16,8 +25,9 @@ const BorrowedItems = () => {
       let MyBorrow = snapshot.docs.map(d => {
 
         const { id, img, location, status, type } = d.data()
-        console.log(id, img, location, status, type)
+        
         return {id, img, location, status, type}
+
 
       })
 
@@ -36,9 +46,10 @@ const BorrowedItems = () => {
         <div className="BedCss">
         {
         
-        BorrowedItems.map((item) => {
+        BorrowedItems.map((item, index) => {
           return (
             <Card
+            key={index}
             style={{ width: 300,marginRight: "20px" }}
             cover={
               <img 
@@ -47,11 +58,11 @@ const BorrowedItems = () => {
                 src= {item.img}
               />
             }
-            actions={[
+            // actions={[
               
-              <h1> <DownSquareOutlined /> กดปุ่มเพื่อคืน</h1>
+            //   <div> <DownSquareOutlined onClick={handleClick}/> กดปุ่มเพื่อคืน</div>
              
-            ]}
+            // ]}
           >
             <Meta
               title ={`รหัสอุปกรณ์ ${item.id}`}
@@ -60,6 +71,7 @@ const BorrowedItems = () => {
              <Meta
               description={item.status}
             />
+            <Button onClick={()=>deleteData(item.id)}>กดปุ่มเพื่อคืน</Button>
           </Card>
           )
         })

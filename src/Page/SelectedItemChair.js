@@ -17,11 +17,22 @@ const SeletedItemChair = () => {
   const [location, setLocation] = useState([]);
   const [MyBorrow,setBorrow] = useState([{}]);
     const [ Wheelcahir ,setWheelchair] =useState([{}]);
+    const onFinish = (values) => {
+      let id =
+        InventoryTracking.length === 0
+          ? 1
+          : InventoryTracking[InventoryTracking.length - 1].id + 1;
+      firestore
+        .collection("Wheelchair")
+        .doc(id + "")
+        .set({ id, img, location, status, type });
+      alert("You Add Finish");
+    };
   const retriveData = () => {
 
     firestore.collection("Wheelchair").onSnapshot(snapshot => {
   
-        console.log(snapshot);
+       
   
         let MyWheelchair = snapshot.docs.map(d => {
   
@@ -36,21 +47,18 @@ const SeletedItemChair = () => {
       })
     
     }
-    const onADD = (ids, img, location, status, type) => {
-      let id = MyBorrow.length === 0 ? 1 : MyBorrow[MyBorrow.length - 1].id + 1;
+    const onADD = (id, img, location, status, type) => {
       firestore
       .collection("borrow")
-      .doc(id + "")
-      .set({ ids, img, location, status, type });
+      .doc(id.toString())
+      .set({ id, img, location, status, type });
     alert("ทำการยืมเสร็จเรียบร้อย");
       }
     const retriveDataBorrow = () => {
       firestore.collection("borrow").onSnapshot((snapshot) => {
-        console.log(snapshot);
-  
+        
         let MyBorrow= snapshot.docs.map((d) => {
           const { id, img, location, status, type } = d.data();
-          console.log(id, img, location, status, type);
           return { id, img, location, status, type };
         });
   
@@ -72,9 +80,6 @@ const SeletedItemChair = () => {
     Wheelcahir.map((item) => {
       return (
         <>
-        {
-                      console.log(item.id)
-                  } 
          {
            item?.id?.toString() === history.location.pathname.substr(history.location.pathname.length - 1) && (
                <div>

@@ -16,24 +16,32 @@ const SeletedItemOxygen = () => {
   const [location, setLocation] = useState([]);
   const [MyBorrow, setBorrow] = useState([{}]);
 
-  const onADD = (ids, img, location, status, type) => {
-    let id = MyBorrow.length === 0 ? 1 : MyBorrow[MyBorrow.length - 1].id + 1;
+  const onFinish = (values) => {
+    let id =
+      InventoryTracking.length === 0
+        ? 1
+        : InventoryTracking[InventoryTracking.length - 1].id + 1;
+    firestore
+      .collection("Oxygentank")
+      .doc(id + "")
+      .set({ id, img, location, status, type });
+    alert("You Add Finish");
+  };
+
+  const onADD = (id, img, location, status, type) => {
     firestore
     .collection("borrow")
-    .doc(id + "")
-    .set({ ids, img, location, status, type });
-  alert("ทำการยืมเสร็จเรียบร้อย");
-    }
+    .doc(id.toString())
+    .set({ id, img, location, status, type });
+    alert("ทำการยืมเสร็จเรียบร้อย");
+    };
 
   const [OxygenTank, setOxygenTank] = useState([{}]);
 
   const retriveData = () => {
     firestore.collection("OxygenTank").onSnapshot((snapshot) => {
-      console.log(snapshot);
-
       let MyOxygenTank = snapshot.docs.map((d) => {
         const { id, status, type, img, location } = d.data();
-        console.log(id, status, type, img, location);
         return { id, status, type, img, location };
       });
 
@@ -42,14 +50,10 @@ const SeletedItemOxygen = () => {
   };
   const retriveDataBorrow = () => {
     firestore.collection("borrow").onSnapshot((snapshot) => {
-      console.log(snapshot);
-
       let MyBorrow= snapshot.docs.map((d) => {
         const { id, img, location, status, type } = d.data();
-        console.log(id, img, location, status, type);
         return { id, img, location, status, type };
       });
-
       setBorrow(MyBorrow);
     });
   };
