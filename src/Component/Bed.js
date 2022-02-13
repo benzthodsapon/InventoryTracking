@@ -1,5 +1,5 @@
-import { Card,  } from 'antd';
-import { DownSquareOutlined } from '@ant-design/icons';
+import { Card,Button } from 'antd';
+import { DownSquareOutlined,EditOutlined } from '@ant-design/icons';
 import React, { useState,useEffect,} from "react";
 import { useHistory } from "react-router-dom";
 import { firestore } from '../index'
@@ -11,12 +11,15 @@ const { Meta } = Card;
  const Bed  = () => {
   const history = useHistory();
   const [ Bed ,setBed] =useState([{}]);
+  const onADD = (id, img, location, status, type) => {
+    firestore
+      .collection("damaged")
+      .doc(id.toString())
+      .set({ id, img, location, status, type });
+  };
   const retriveData = () => {
 
     firestore.collection("Bed").onSnapshot(snapshot => {
-
-    
-
       let MyBed = snapshot.docs.map(d => {
 
         const { id,status,type,img } = d.data()
@@ -47,7 +50,7 @@ const { Meta } = Card;
             style={{ width: 300,marginRight: "20px" }}
             cover={
               <img 
-                style ={{width: 200,height:250}}
+                style ={{width: 200,height:250,justifyContent:"center'"}}
                 alt="example"
                 src= {item.img}
               />
@@ -55,9 +58,15 @@ const { Meta } = Card;
             actions={[
               
               <h1 onClick={ () =>history.push(`/SelectedItemBed/${item.id}`)}> <DownSquareOutlined /> กดปุ่มเพื่อยืม</h1>
-             
+            
             ]}
           >
+             
+             
+              
+             
+    
+          
             <Meta
               title ={`รหัสอุปกรณ์ ${item.id}`}
               description={item.type}
@@ -65,6 +74,7 @@ const { Meta } = Card;
              <Meta
               description={item.status}
             />
+            <Button onClick={()=>onADD(item.id,item.img,item.location,item.status,item.type)}> <EditOutlined />แจ้งชำรุด</Button>
           </Card>
           )
         })

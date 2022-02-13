@@ -44,7 +44,10 @@
 }
 .ant-typography{
 
-    margin-top:  70px;
+    font-weight: 600;
+    font-size: 38;
+    display: flex;
+    text-align: center;
     
 }
 

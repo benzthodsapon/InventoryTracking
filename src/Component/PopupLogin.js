@@ -8,17 +8,18 @@ import React, { useState } from "react";
 const PopupLogin = () => {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
-  const linkto = () => {
-    history.push("/PageHome");
-  };
+  // const linkto = () => {
+  //   history.push("/Pagehome");
+  // };
   const handleSubmit = (value) => {
     console.log(value);
     setLoading(true);
     auth
       .signInWithEmailAndPassword(value.email, value.password)
       .then((data) => {
-        console.log(data);
-        history.push("/PageHome");
+        console.log("dataLogin",value.email);
+        history.push({pathname:"/Account",state: {email: value.email}})
+        console.log("test");      
       })
       .catch((err) => {
         console.log(err);
@@ -49,6 +50,7 @@ const PopupLogin = () => {
         >
           Log in
         </Button>
+        
       </Form.Item>
     </Form>
   );
